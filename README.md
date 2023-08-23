@@ -41,7 +41,7 @@ When I visit '/parents/:id'
 Then I see the parent with that id including the parent's attributes
 (data from each column that is on the parent table)
 
-[ ] done
+[x] done
 
 ### User Story 3, Child Index 
 
