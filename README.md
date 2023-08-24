@@ -130,7 +130,7 @@ Then a `POST` request is sent to the '/parents' route,
 a new parent record is created,
 and I am redirected to the Parent Index page where I see the new Parent displayed.
 
-[ ] done
+[x] done
 
 ### User Story 12, Parent Update 
 
