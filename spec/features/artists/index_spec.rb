@@ -24,6 +24,16 @@ RSpec.describe "Artists index" do
         expect(page).to have_content(@pup.created_at)
         expect(@lcd.name).to appear_before(@pup.name)
       end
+
+      it "I see a link to create a new artist that takes me to a new artist form" do
+        visit "/artists"
+
+        expect(page).to have_content("New Artist")
+
+        click_on "New Artist"
+
+        expect(current_path).to eq("/artists/new")
+      end
     end
   end
 end
