@@ -160,7 +160,7 @@ Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
 a new child object/row is created for that parent,
 and I am redirected to the Parent Childs Index page where I can see the new child listed
 
-[ ] done
+[x] done - still need to write tests!!!
 
 ### User Story 14, Child Update 
 

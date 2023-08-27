@@ -5,3 +5,4 @@
   <p>Number of Songs: <%= album.number_of_songs%></p>
   <p>Year Released: <%= album.year_released%></p>
 <% end %>
+<%= link_to "Create Album", "/artists/#{@artist.id}/albums/new" %>

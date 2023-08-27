@@ -19,6 +19,16 @@ RSpec.describe "Artist albums index" do
         expect(page).to have_content(@lcd_self_titled.number_of_songs)
         expect(page).to have_content(@lcd_self_titled.year_released)
       end
+
+      it "I see a link to add a new album" do
+        visit "/artists/#{@lcd.id}/albums"
+
+        expect(page).to have_content("Create Album")
+
+        click_on "Create Album"
+
+        expect(current_path).to eq("/artists/#{@lcd.id}/albums/new")
+      end
     end
   end
 end
