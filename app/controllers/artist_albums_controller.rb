@@ -3,6 +3,10 @@ class ArtistAlbumsController < ApplicationController
   def index
     @artist = Artist.find(params[:artist_id])
     @albums = @artist.albums
+
+    if params[:sort] == "title"
+      @albums = @albums.order(:title)
+    end
   end
 
   def new

@@ -2,6 +2,7 @@ class AlbumsController < ApplicationController
   
   def index
     @albums = Album.all
+    # require 'pry';binding.pry
   end
 
   def new

@@ -1,6 +1,6 @@
 <h1>All Albums</h1>
 
-<% @albums.each do |album| %>
+<% @albums.where(ep: true).each do |album| %>
   <h3><a href="/albums/<%= album.id %>"><%= album.title %> (<%= album.ep?%>) by <%= album.artist.name%></a></h3>
   <p>Number of Songs: <%= album.number_of_songs%></p>
   <p>Year Released: <%= album.year_released%></p>

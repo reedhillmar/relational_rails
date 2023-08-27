@@ -1,5 +1,7 @@
 <h1><%= @artist.name %>'s Albums</h1>
 
+<%= link_to "Sort Alphabetically", "/artists/#{@artist.id}/albums?sort=title"%>
+
 <% @albums.each do |album| %>
   <h3><a href="/albums/<%= album.id %>"><%= album.title %> (<%= album.ep?%>) by <%= album.artist.name%></a></h3>
   <p>Number of Songs: <%= album.number_of_songs%></p>

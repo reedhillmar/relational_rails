@@ -184,7 +184,7 @@ As a visitor
 When I visit the child index
 Then I only see records where the boolean column is `true`
 
-[ ] done
+[x] done - Breaks user story 3. I really hate this US, it should be an option to only show true records, not the default
 
 ### User Story 16, Sort Parent's Children in Alphabetical Order by name 
 
@@ -194,7 +194,7 @@ Then I see a link to sort children in alphabetical order
 When I click on the link
 I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
 
-[ ] done
+[x] done
 
 ## Usability
 
