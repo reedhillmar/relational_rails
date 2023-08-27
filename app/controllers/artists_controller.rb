@@ -24,4 +24,21 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.find(params[:id])
   end
+
+  def edit
+    @artist = Artist.find(params[:id])
+  end
+
+  def update
+    artist = Artist.find(params[:id])
+    artist.update({
+      name: params[:name],
+      year_formed: params[:year_formed].to_i,
+      touring: params[:touring] == "on"
+    })
+
+    artist.save
+
+    redirect_to "/artists/#{artist.id}"
+  end
 end

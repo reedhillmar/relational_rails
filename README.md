@@ -130,7 +130,7 @@ Then a `POST` request is sent to the '/parents' route,
 a new parent record is created,
 and I am redirected to the Parent Index page where I see the new Parent displayed.
 
-[ ] done
+[x] done
 
 ### User Story 12, Parent Update 
 
@@ -145,7 +145,7 @@ Then a `PATCH` request is sent to '/parents/:id',
 the parent's info is updated,
 and I am redirected to the Parent's Show page where I see the parent's updated info
 
-[ ] done
+[x] done
 
 ### User Story 13, Parent Child Creation 
 
@@ -160,7 +160,7 @@ Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
 a new child object/row is created for that parent,
 and I am redirected to the Parent Childs Index page where I can see the new child listed
 
-[ ] done
+[x] done
 
 ### User Story 14, Child Update 
 
@@ -174,7 +174,7 @@ Then a `PATCH` request is sent to '/child_table_name/:id',
 the child's data is updated,
 and I am redirected to the Child Show page where I see the Child's updated information
 
-[ ] done
+[x] done
 
 ## ActiveRecord
 
@@ -184,7 +184,7 @@ As a visitor
 When I visit the child index
 Then I only see records where the boolean column is `true`
 
-[ ] done
+[x] done - Breaks user story 3. I really hate this US, it should be an option to only show true records, not the default
 
 ### User Story 16, Sort Parent's Children in Alphabetical Order by name 
 
@@ -194,7 +194,7 @@ Then I see a link to sort children in alphabetical order
 When I click on the link
 I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
 
-[ ] done
+[x] done
 
 ## Usability
 
@@ -206,7 +206,7 @@ Next to every parent, I see a link to edit that parent's info
 When I click the link
 I should be taken to that parent's edit page where I can update its information just like in User Story 12
 
-[ ] done
+[x] done
 
 ### User Story 18, Child Update From Childs Index Page 
 
@@ -216,7 +216,7 @@ Next to every child, I see a link to edit that child's info
 When I click the link
 I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 14
 
-[ ] done
+[x] done
 
 # Iteration 3
 ## CRUD

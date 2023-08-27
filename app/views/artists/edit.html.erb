@@ -1,0 +1,11 @@
+<form action="/artists/<%= @artist.id%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <label for="name">Artist Name:</label><br>
+  <input type="text" id="name" name="name" value="<%= @artist.name %>"><br>
+  <label for="year_formed">Year Formed:</label><br>
+  <input type="text" id="year_formed" name="year_formed" value="<%= @artist.year_formed %>"><br>
+  <label for="touring">Touring?</label><br>
+  <input type="checkbox" id="touring" name="touring" <%= @artist.touring_checked? %>><br>
+  <input type='submit' value="Update Artist"/>
+</form>

@@ -1,3 +1,4 @@
 <h1><%= @album.title %> (<%= @album.ep? %>) by <%= @album.artist.name %></h1>
 <p>Number of Songs: <%= @album.number_of_songs %></p>
 <p>Year Released: <%= @album.year_released %></p>
+<%= link_to "Update Album", "/albums/#{@album.id}/edit"%>

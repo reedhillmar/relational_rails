@@ -19,6 +19,16 @@ RSpec.describe "Albums show" do
         expect(page).to have_content(@lcd_self_titled.number_of_songs)
         expect(page).to have_content(@lcd_self_titled.year_released)
       end
+
+      it "I see a link to update the album" do
+        visit "/albums/#{@lcd_self_titled.id}"
+
+        expect(page).to have_content("Update Album")
+
+        click_on "Update Album"
+
+        expect(current_path).to eq("/albums/#{@lcd_self_titled.id}/edit")
+      end
     end
   end
 end
