@@ -2,4 +2,5 @@
 <p><%= @artist.name %> was formed in <%= @artist.year_formed %></p>
 <p><%= @artist.name %> is <%= @artist.touring? %></p>
 <p><%= @artist.name %> has <%= @artist.albums.count %> album(s).</p>
-<%= link_to "Albums by #{@artist.name}", "/artists/#{@artist.id}/albums" %>
+<%= link_to "Albums by #{@artist.name}", "/artists/#{@artist.id}/albums" %><br>
+<%= link_to "Update Artist", "/artists/#{@artist.id}/edit" %>

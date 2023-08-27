@@ -16,11 +16,15 @@ RSpec.describe "Artists new" do
 
         fill_in "name", with: "The Strokes"
         fill_in "year_formed", with: "1998"
+        check "touring"
 
         click_on "Create Artist"
 
         expect(current_path).to eq("/artists")
         expect(page).to have_content("The Strokes")
+
+        click_on "The Strokes"
+        expect(page).to have_content("is touring")
       end
     end
   end

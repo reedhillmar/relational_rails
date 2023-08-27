@@ -145,7 +145,7 @@ Then a `PATCH` request is sent to '/parents/:id',
 the parent's info is updated,
 and I am redirected to the Parent's Show page where I see the parent's updated info
 
-[ ] done
+[x] done
 
 ### User Story 13, Parent Child Creation 
 

@@ -48,6 +48,16 @@ RSpec.describe "Artists show" do
 
         expect(current_path).to eq("/artists/#{@lcd.id}/albums")
       end
+
+      it "I see a link to update the artist" do
+        visit "/artists/#{@lcd.id}"
+
+        expect(page).to have_content("Update Artist")
+
+        click_on "Update Artist"
+
+        expect(current_path).to eq("/artists/#{@lcd.id}/edit")
+      end
     end
   end
 end

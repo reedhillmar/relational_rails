@@ -9,4 +9,7 @@ class Artist < ApplicationRecord
     end
   end
 
+  def touring_checked?
+    "checked" if touring == true
+  end
 end
