@@ -27,6 +27,16 @@ RSpec.describe "Albums index" do
         expect(page).to have_content(@n_a_s.title)
         expect(page).not_to have_content(@lcd_self_titled.number_of_songs)
       end
+
+      it "I see a link to edit an artist next to each artist" do
+        visit "/albums"
+
+        expect(page).to have_content("Update Album")
+
+        first(:link, "Update Album").click
+
+        expect(current_path).to eq("/albums/#{@n_a_s.id}/edit")
+      end
     end
   end
 end

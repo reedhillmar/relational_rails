@@ -34,6 +34,16 @@ RSpec.describe "Artists index" do
 
         expect(current_path).to eq("/artists/new")
       end
+
+      it "I see a link to edit an artist next to each artist" do
+        visit "/artists"
+
+        expect(page).to have_content("Update Artist")
+
+        first(:link, "Update Artist").click
+
+        expect(current_path).to eq("/artists/#{@lcd.id}/edit")
+      end
     end
   end
 end

@@ -206,7 +206,7 @@ Next to every parent, I see a link to edit that parent's info
 When I click the link
 I should be taken to that parent's edit page where I can update its information just like in User Story 12
 
-[ ] done
+[x] done
 
 ### User Story 18, Child Update From Childs Index Page 
 
@@ -216,7 +216,7 @@ Next to every child, I see a link to edit that child's info
 When I click the link
 I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 14
 
-[ ] done
+[x] done
 
 # Iteration 3
 ## CRUD
