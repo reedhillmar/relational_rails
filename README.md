@@ -160,7 +160,7 @@ Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
 a new child object/row is created for that parent,
 and I am redirected to the Parent Childs Index page where I can see the new child listed
 
-[x] done - still need to write tests!!!
+[x] done
 
 ### User Story 14, Child Update 
 
@@ -174,7 +174,7 @@ Then a `PATCH` request is sent to '/child_table_name/:id',
 the child's data is updated,
 and I am redirected to the Child Show page where I see the Child's updated information
 
-[ ] done
+[x] done
 
 ## ActiveRecord
 

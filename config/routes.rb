@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   patch "/artists/:id", to: "artists#update"
   get "/artists/:artist_id/albums/new", to:"artist_albums#new"
   post "/artists/:artist_id/albums", to:"artist_albums#create"
+  get "/albums/:id/edit", to: "albums#edit"
+  patch "/albums/:id", to: "albums#update"
 end

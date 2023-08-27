@@ -8,5 +8,9 @@ class Album < ApplicationRecord
       "LP"
     end
   end
+
+  def ep_checked?
+    "checked" if ep == true
+  end
   
 end
