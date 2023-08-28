@@ -29,6 +29,17 @@ RSpec.describe "Albums show" do
 
         expect(current_path).to eq("/albums/#{@lcd_self_titled.id}/edit")
       end
+
+      it "I see a link to delete the album" do
+        visit "/albums/#{@morbid.id}"
+
+        expect(page).to have_content("Delete Album")
+
+        click_on "Delete Album"
+
+        expect(current_path).to eq("/albums")
+        expect(page).not_to have_content("#{@morbid.title}")
+      end
     end
   end
 end

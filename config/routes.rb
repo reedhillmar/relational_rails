@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get "/albums/:id/edit", to: "albums#edit"
   patch "/albums/:id", to: "albums#update"
   delete "/artists/:id", to: "artists#destroy"
+  delete "/albums/:id", to: "albums#destroy"
 end
