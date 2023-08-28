@@ -253,7 +253,7 @@ I see a form that allows me to input a number value
 When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
 Then I am brought back to the current index page with only the records that meet that threshold shown.
 
-[ ] done
+[x] done
 
 ## Usability
 ### User Story 22, Parent Delete From Parent Index Page 
