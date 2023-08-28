@@ -230,7 +230,7 @@ Then a 'DELETE' request is sent to '/parents/:id',
 the parent is deleted, and all child records are deleted
 and I am redirected to the parent index page where I no longer see this parent
 
-[ ] done
+[x] done
 
 ### User Story 20, Child Delete 
 
