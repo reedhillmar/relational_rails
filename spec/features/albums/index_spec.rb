@@ -48,6 +48,29 @@ RSpec.describe "Albums index" do
         expect(current_path).to eq("/albums")
         expect(page).not_to have_content(@n_a_s.title)
       end
+
+      it "I can search for exact and partial matches" do
+        visit "/albums"
+
+        fill_in "partial", with: "American"
+        
+        click_on "Search (partial)"
+
+        expect(page).to have_content(@n_a_s.title)
+
+
+        fill_in "exact", with: "American"
+        
+        click_on "Search (exact)"
+
+        expect(page).not_to have_content(@n_a_s.title)
+
+        fill_in "exact", with: "North American Scum EP"
+        
+        click_on "Search (exact)"
+
+        expect(page).to have_content(@n_a_s.title)
+      end
     end
   end
 end

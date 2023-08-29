@@ -1,5 +1,17 @@
 <h1>All Albums</h1>
 
+<%= form_with url: "/albums", method: :get, data: {turbo: false} do |form| %>
+  <%= form.label :partial, "Search by Keyword (partial):" %>
+  <%= form.text_field :partial %><br>
+  <%= form.submit "Search (partial)" %>
+<% end %>
+<br>
+<%= form_with url: "/albums", method: :get, data: {turbo: false} do |form| %>
+  <%= form.label :exact, "Search by Keyword (exact):" %>
+  <%= form.text_field :exact %><br>
+  <%= form.submit "Search (exact)" %>
+<% end %>
+
 <% @albums.where(ep: true).each do |album| %>
   <h3><a href="/albums/<%= album.id %>"><%= album.title %> (<%= album.ep?%>) by <%= album.artist.name%></a></h3>
   <%= link_to "Update Album", "/albums/#{album.id}/edit" %>
