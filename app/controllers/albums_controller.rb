@@ -4,9 +4,9 @@ class AlbumsController < ApplicationController
     @albums = Album.all
 
     if params[:partial] != nil
-      @albums = @albums.where("title like ?", "%#{params[:partial]}%")
+      @albums = Album.partial(params[:partial])
     elsif params[:exact] != nil
-      @albums = @albums.where(title: params[:exact])
+      @albums = Album.exact(params[:exact])
     end
   end
 

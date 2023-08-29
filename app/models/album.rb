@@ -18,4 +18,19 @@ class Album < ApplicationRecord
     "checked" if ep == true
   end
   
+  def self.partial(keyword)
+    Album.where("title like ?", "%#{keyword}%")
+  end
+
+  def self.exact(keyword)
+    Album.where(title: keyword)
+  end
+
+  def self.order_by_title
+    Album.order(:title)
+  end
+
+  def self.year_threshold(year)
+    Album.where("year_released >= #{year}")
+  end
 end

@@ -16,4 +16,16 @@ class Artist < ApplicationRecord
   def touring_checked?
     "checked" if touring == true
   end
+
+  def self.order_by_album_count
+    Artist.left_joins(:albums).group(:id).order("count(albums.id) desc")
+  end
+
+  def self.partial(keyword)
+    Artist.where("name like ?", "%#{keyword}%")
+  end
+
+  def self.exact(keyword)
+    Artist.where(name: keyword)
+  end
 end
