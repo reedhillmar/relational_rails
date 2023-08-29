@@ -4,3 +4,4 @@
 <p><%= @artist.name %> has <%= @artist.albums.count %> album(s).</p>
 <%= link_to "Albums by #{@artist.name}", "/artists/#{@artist.id}/albums" %><br>
 <%= link_to "Update Artist", "/artists/#{@artist.id}/edit" %>
+<%= link_to "Delete Artist", "/artists/#{@artist.id}", data: {turbo_method: :delete} %>

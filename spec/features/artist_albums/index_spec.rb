@@ -41,6 +41,17 @@ RSpec.describe "Artist albums index" do
 
         expect(@american_dream.title).to appear_before(@north_american.title)
       end
+
+      it "I see a link that lets me only return records over a given threshold" do
+        visit "/artists/#{@lcd.id}/albums"
+
+        fill_in "threshold", with: 2007
+
+        click_on "Submit"
+
+        expect(page).to have_content(@north_american.year_released)
+        expect(page).not_to have_content(@lcd_self_titled.year_released)
+      end
     end
   end
 end

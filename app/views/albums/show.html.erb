@@ -2,3 +2,4 @@
 <p>Number of Songs: <%= @album.number_of_songs %></p>
 <p>Year Released: <%= @album.year_released %></p>
 <%= link_to "Update Album", "/albums/#{@album.id}/edit"%>
+<%= link_to "Delete Album", "/albums/#{@album.id}", data: {turbo_method: :delete} %>

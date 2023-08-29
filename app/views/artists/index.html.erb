@@ -1,7 +1,7 @@
 <h1>All Artists</h1>
 
 <% @artists.order("created_at").each do |artist| %>
-    <p><a href="/artists/<%= artist.id %>"><%= artist.name %></a> <%= link_to "Update Artist", "/artists/#{artist.id}/edit" %> (Created At <%= artist.created_at%>)</p>
+    <p><a href="/artists/<%= artist.id %>"><%= artist.name %></a> <%= link_to "Update Artist", "/artists/#{artist.id}/edit" %> <%= link_to "Delete Artist", "/artists/#{artist.id}", data: {turbo_method: :delete} %> (Created At <%= artist.created_at%>)</p>
 <% end %>
 
 <a href="/artists/new">New Artist</a>

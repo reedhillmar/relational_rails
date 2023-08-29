@@ -4,6 +4,7 @@ RSpec.describe "Artists show" do
   before :each do
     @lcd = Artist.create!(name: "LCD Soundsystem", year_formed: "2002", touring: false)
     @pup = Artist.create!(name: "PUP", year_formed: "2010", touring: true)
+    @lcd_self_titled = @lcd.albums.create!(title: "LCD Soundsystem", ep: false, number_of_songs: 16, year_released: 2005)
   end
 
   describe "As a visitor" do
@@ -57,6 +58,21 @@ RSpec.describe "Artists show" do
         click_on "Update Artist"
 
         expect(current_path).to eq("/artists/#{@lcd.id}/edit")
+      end
+
+      it "I see a link to delete the artist" do
+        visit "/artists/#{@lcd.id}"
+
+        expect(page).to have_content("Delete Artist")
+
+        click_on "Delete Artist"
+
+        expect(current_path).to eq("/artists")
+        expect(page).not_to have_content("#{@lcd.name}")
+
+        visit "/albums"
+
+        expect(page).not_to have_content("#{@lcd_self_titled.title}")
       end
     end
   end
