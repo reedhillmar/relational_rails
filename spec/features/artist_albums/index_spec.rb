@@ -52,6 +52,30 @@ RSpec.describe "Artist albums index" do
         expect(page).to have_content(@north_american.year_released)
         expect(page).not_to have_content(@lcd_self_titled.year_released)
       end
+
+      it "I can search for exact and partial matches" do
+        visit "/artists/#{@lcd.id}/albums"
+
+        fill_in "partial", with: "American"
+        
+        click_on "Search (partial)"
+
+        expect(page).to have_content(@american_dream.title)
+        expect(page).to have_content(@north_american.title)
+        expect(page).not_to have_content("#{@lcd_self_titled.title} (LP)")
+
+        fill_in "exact", with: "American"
+        
+        click_on "Search (exact)"
+
+        expect(page).not_to have_content(@american_dream.title)
+
+        fill_in "exact", with: "American Dream"
+        
+        click_on "Search (exact)"
+
+        expect(page).to have_content(@american_dream.title)
+      end
     end
   end
 end

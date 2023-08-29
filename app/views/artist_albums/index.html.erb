@@ -7,6 +7,18 @@
   <%= form.text_field :threshold %><br>
   <%= form.submit "Submit" %>
 <% end %>
+<br>
+<%= form_with url: "/artists/#{@artist.id}/albums", method: :get, data: {turbo: false} do |form| %>
+  <%= form.label :partial, "Search by Keyword (partial):" %>
+  <%= form.text_field :partial %><br>
+  <%= form.submit "Search (partial)" %>
+<% end %>
+<br>
+<%= form_with url: "/artists/#{@artist.id}/albums", method: :get, data: {turbo: false} do |form| %>
+  <%= form.label :exact, "Search by Keyword (exact):" %>
+  <%= form.text_field :exact %><br>
+  <%= form.submit "Search (exact)" %>
+<% end %>
 
 <% @albums.each do |album| %>
   <h3><a href="/albums/<%= album.id %>"><%= album.title %> (<%= album.ep?%>) by <%= album.artist.name%></a></h3>

@@ -7,10 +7,12 @@ class ArtistAlbumsController < ApplicationController
 
     if params[:sort] == "title"
       @albums = @albums.order(:title)
-    end
-
-    if params[:threshold] != nil
+    elsif params[:threshold] != nil
       @albums = @albums.where("year_released >= #{params[:threshold]}")
+    elsif params[:partial] != nil
+      @albums = @albums.where("title like ?", "%#{params[:partial]}%")
+    elsif params[:exact] != nil
+      @albums = @albums.where(title: params[:exact])
     end
   end
 

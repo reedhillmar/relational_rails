@@ -1,9 +1,21 @@
 <h1>All Artists</h1>
 
 <%= link_to "Sort by Albums Released", "/artists?sort=albums_count"%><br>
+<br>
+<%= form_with url: "/artists", method: :get, data: {turbo: false} do |form| %>
+  <%= form.label :partial, "Search by Keyword (partial):" %>
+  <%= form.text_field :partial %><br>
+  <%= form.submit "Search (partial)" %>
+<% end %>
+<br>
+<%= form_with url: "/artists", method: :get, data: {turbo: false} do |form| %>
+  <%= form.label :exact, "Search by Keyword (exact):" %>
+  <%= form.text_field :exact %><br>
+  <%= form.submit "Search (exact)" %>
+<% end %>
 
 <% @artists.order("created_at").each do |artist| %>
-    <p><a href="/artists/<%= artist.id %>"><%= artist.name %></a> (<%= artist.albums.count %> albums) <%= link_to "Update Artist", "/artists/#{artist.id}/edit" %> <%= link_to "Delete Artist", "/artists/#{artist.id}", data: {turbo_method: :delete} %> (Created At <%= artist.created_at%>)</p>
+  <p><a href="/artists/<%= artist.id %>"><%= artist.name %></a> (<%= artist.albums.count %> albums) <%= link_to "Update Artist", "/artists/#{artist.id}/edit" %> <%= link_to "Delete Artist", "/artists/#{artist.id}", data: {turbo_method: :delete} %> (Created At <%= artist.created_at%>)</p>
 <% end %>
 
 <a href="/artists/new">New Artist</a>

@@ -288,7 +288,7 @@ Then I see a link to sort parents by the number of `child_table_name` they have
 When I click on the link
 I'm taken back to the Parent Index Page where I see all of the parents in order of their count of `child_table_name` (highest to lowest) And, I see the number of children next to each parent name
 
-[ ] done
+[x] done
 
 ### Extension 2: Search by name (exact match)
 
@@ -298,7 +298,7 @@ Then I see a text box to filter results by keyword
 When I type in a keyword that is an exact match of one or more of my records and press the Search button
 Then I only see records that are an exact match returned on the page
 
-[ ] done
+[x] done
 
 ### Extension 3: Search by name (partial match)
 
@@ -310,4 +310,4 @@ Then I only see records that are an partial match returned on the page
 
 This functionality should be separate from your exact match functionality.
 
-[ ] done
+[x] done

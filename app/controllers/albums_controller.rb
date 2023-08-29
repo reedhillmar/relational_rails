@@ -2,6 +2,12 @@ class AlbumsController < ApplicationController
   
   def index
     @albums = Album.all
+
+    if params[:partial] != nil
+      @albums = @albums.where("title like ?", "%#{params[:partial]}%")
+    elsif params[:exact] != nil
+      @albums = @albums.where(title: params[:exact])
+    end
   end
 
   def show

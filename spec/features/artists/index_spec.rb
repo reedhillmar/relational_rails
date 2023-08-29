@@ -71,6 +71,29 @@ RSpec.describe "Artists index" do
         expect(@pup.name).to appear_before(@lcd.name)
         expect(page).to have_content("#{@pup.name} (#{@pup.albums.count} albums)")
       end
+
+      it "I can search for exact and partial matches" do
+        visit "/artists"
+
+        fill_in "partial", with: "LCD"
+        
+        click_on "Search (partial)"
+
+        expect(page).to have_content(@lcd.name)
+        expect(page).not_to have_content(@pup.name)
+
+        fill_in "exact", with: "LCD"
+        
+        click_on "Search (exact)"
+
+        expect(page).not_to have_content(@lcd.name)
+
+        fill_in "exact", with: "LCD Soundsystem"
+        
+        click_on "Search (exact)"
+
+        expect(page).to have_content(@lcd.name)
+      end
     end
   end
 end

@@ -5,6 +5,10 @@ class ArtistsController < ApplicationController
 
     if params[:sort] == "albums_count"
       @artists = @artists.left_joins(:albums).group(:id).order("count(albums.id) desc")
+    elsif params[:partial] != nil
+      @artists = @artists.where("name like ?", "%#{params[:partial]}%")
+    elsif params[:exact] != nil
+      @artists = @artists.where(name: params[:exact])
     end
   end
 
