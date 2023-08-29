@@ -1,11 +1,9 @@
-<form action="/artists/<%= @artist.id%>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <label for="name">Artist Name:</label><br>
-  <input type="text" id="name" name="name" value="<%= @artist.name %>"><br>
-  <label for="year_formed">Year Formed:</label><br>
-  <input type="text" id="year_formed" name="year_formed" value="<%= @artist.year_formed %>"><br>
-  <label for="touring">Touring?</label><br>
-  <input type="checkbox" id="touring" name="touring" <%= @artist.touring_checked? %>><br>
-  <input type='submit' value="Update Artist"/>
-</form>
+<%= form_with url: "/artists/#{@artist.id}", method: :patch, data: {turbo: false} do |form| %>
+  <%= form.label :name, "Artist Name:" %><br>
+  <%= form.text_field :name, {:value => @artist.name} %><br>
+  <%= form.label :year_formed, "Year Formed:" %><br>
+  <%= form.text_field :year_formed, {:value => @artist.year_formed} %><br>
+  <%= form.label :touring, "Touring?" %><br>
+  <%= form.check_box :touring, {checked: @artist.touring} %><br>
+  <%= form.submit "Update Artist" %>
+<% end %>

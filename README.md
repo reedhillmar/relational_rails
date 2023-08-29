@@ -23,6 +23,9 @@ Things you may want to cover:
 
 * ...
 
+# Database Design
+[DB Designer Albums & Artists](https://dbdesigner.page.link/WEgkFUF8Y8nrZrsm9)
+
 # Iteration 1
 ## CRUD
 ### User Story 1, Parent Index 
@@ -264,7 +267,7 @@ Next to every parent, I see a link to delete that parent
 When I click the link
 I am returned to the Parent Index Page where I no longer see that parent
 
-[ ] done
+[x] done
 
 ### User Story 23, Child Delete From Childs Index Page 
 
@@ -274,7 +277,7 @@ Next to every child, I see a link to delete that child
 When I click the link
 I should be taken to the `child_table_name` index page where I no longer see that child
 
-[ ] done
+[x] done
 
 # Extensions
 ### Extension 1: Sort Parents by Number of Children 

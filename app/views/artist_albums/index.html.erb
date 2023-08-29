@@ -1,13 +1,12 @@
 <h1><%= @artist.name %>'s Albums</h1>
 
-<%= link_to "Sort Alphabetically", "/artists/#{@artist.id}/albums?sort=title"%>
-
-<form action="/artists/<%= @artist.id %>/albums" method="get">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label for="threshold">Year Threshold:</label><br>
-  <input type="text" id="threshold" name="threshold" value="0">
-  <input type="submit" value="Only return albums released in the given year or later">
-</form>
+<%= link_to "Sort Alphabetically", "/artists/#{@artist.id}/albums?sort=title"%><br>
+<br>
+<%= form_with url: "/artists/#{@artist.id}/albums", method: :get, data: {turbo: false} do |form| %>
+  <%= form.label :threshold, "Only return albums released in this year or later:" %>
+  <%= form.text_field :threshold %><br>
+  <%= form.submit "Submit" %>
+<% end %>
 
 <% @albums.each do |album| %>
   <h3><a href="/albums/<%= album.id %>"><%= album.title %> (<%= album.ep?%>) by <%= album.artist.name%></a></h3>

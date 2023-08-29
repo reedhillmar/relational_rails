@@ -2,7 +2,7 @@ class ArtistAlbumsController < ApplicationController
   
   def index
     # require 'pry';binding.pry
-    @artist = Artist.find(params[:artist_id])
+    @artist = Artist.find(params[:id])
     @albums = @artist.albums
 
     if params[:sort] == "title"
@@ -15,16 +15,16 @@ class ArtistAlbumsController < ApplicationController
   end
 
   def new
-    @artist = Artist.find(params[:artist_id])
+    @artist = Artist.find(params[:id])
   end
 
   def create
-    @artist = Artist.find(params[:artist_id])
+    @artist = Artist.find(params[:id])
     album = @artist.albums.new({
       title: params[:title],
       number_of_songs: params[:number_of_songs].to_i,
       year_released: params[:year_released].to_i,
-      ep: params[:ep] == "on"
+      ep: params[:ep] != "0"
     })
 
     album.save

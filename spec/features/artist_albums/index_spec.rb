@@ -47,7 +47,7 @@ RSpec.describe "Artist albums index" do
 
         fill_in "threshold", with: 2007
 
-        click_on "Only return albums released in the given year or later"
+        click_on "Submit"
 
         expect(page).to have_content(@north_american.year_released)
         expect(page).not_to have_content(@lcd_self_titled.year_released)

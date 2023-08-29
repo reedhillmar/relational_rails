@@ -44,6 +44,17 @@ RSpec.describe "Artists index" do
 
         expect(current_path).to eq("/artists/#{@lcd.id}/edit")
       end
+
+      it "I see a link to delete an artist next to each artist" do
+        visit "/artists"
+
+        expect(page).to have_content("Delete Artist")
+
+        first(:link, "Delete Artist").click
+
+        expect(current_path).to eq("/artists")
+        expect(page).not_to have_content(@lcd.name)
+      end
     end
   end
 end

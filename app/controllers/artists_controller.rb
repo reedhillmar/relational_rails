@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
     artist = Artist.new({
       name: params[:name],
       year_formed: params[:year_formed].to_i,
-      touring: params[:touring] == "on"
+      touring: params[:touring] != "0"
     })
 
     artist.save
@@ -34,7 +34,7 @@ class ArtistsController < ApplicationController
     artist.update({
       name: params[:name],
       year_formed: params[:year_formed].to_i,
-      touring: params[:touring] == "on"
+      touring: params[:touring] != "0"
     })
 
     artist.save

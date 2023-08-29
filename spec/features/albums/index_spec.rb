@@ -14,11 +14,11 @@ RSpec.describe "Albums index" do
       it "I see the name of each album in the system with the album details" do
         visit "/albums"
 
-        expect(page).to have_content(@lcd_self_titled.title)
-        expect(page).to have_content(@lcd_self_titled.artist.name)
-        expect(page).to have_content(@lcd_self_titled.ep?)
-        expect(page).to have_content(@lcd_self_titled.number_of_songs)
-        expect(page).to have_content(@lcd_self_titled.year_released)
+        expect(page).to have_content(@n_a_s.title)
+        expect(page).to have_content(@n_a_s.artist.name)
+        expect(page).to have_content(@n_a_s.ep?)
+        expect(page).to have_content(@n_a_s.number_of_songs)
+        expect(page).to have_content(@n_a_s.year_released)
       end
 
       it "I only see albums that are EPs" do
@@ -28,7 +28,7 @@ RSpec.describe "Albums index" do
         expect(page).not_to have_content(@lcd_self_titled.number_of_songs)
       end
 
-      it "I see a link to edit an artist next to each artist" do
+      it "I see a link to edit an album next to each album" do
         visit "/albums"
 
         expect(page).to have_content("Update Album")
@@ -36,6 +36,17 @@ RSpec.describe "Albums index" do
         first(:link, "Update Album").click
 
         expect(current_path).to eq("/albums/#{@n_a_s.id}/edit")
+      end
+
+      it "I see a link to delete an album next to each album" do
+        visit "/albums"
+
+        expect(page).to have_content("Delete Album")
+
+        first(:link, "Delete Album").click
+
+        expect(current_path).to eq("/albums")
+        expect(page).not_to have_content(@n_a_s.title)
       end
     end
   end
