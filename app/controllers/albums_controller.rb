@@ -16,8 +16,8 @@ class AlbumsController < ApplicationController
     album = Album.find(params[:id])
     album.update({
       title: params[:title],
-      number_of_songs: params[:number_of_songs].to_i,
-      year_released: params[:year_released].to_i,
+      number_of_songs: params[:number_of_songs],
+      year_released: params[:year_released],
       ep: params[:ep] != "0"
     })
 

@@ -2,6 +2,10 @@ class ArtistsController < ApplicationController
   
   def index
     @artists = Artist.all
+
+    if params[:sort] == "albums_count"
+      @artists = @artists.left_joins(:albums).group(:id).order("count(albums.id) desc")
+    end
   end
 
   def new
@@ -9,10 +13,9 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    # require 'pry';binding.pry
     artist = Artist.new({
       name: params[:name],
-      year_formed: params[:year_formed].to_i,
+      year_formed: params[:year_formed],
       touring: params[:touring] != "0"
     })
 
@@ -33,7 +36,7 @@ class ArtistsController < ApplicationController
     artist = Artist.find(params[:id])
     artist.update({
       name: params[:name],
-      year_formed: params[:year_formed].to_i,
+      year_formed: params[:year_formed],
       touring: params[:touring] != "0"
     })
 
